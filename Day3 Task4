@@ -1,6 +1,6 @@
 package day3;
 import java.util.Scanner;
-class SIB
+class Canara
 {
 	public int total;
 	Scanner s=new Scanner(System.in);
@@ -8,7 +8,7 @@ class SIB
 	{
 		Scanner s=new Scanner(System.in);
 		String acn;
-		System.out.println("account holder name:Vivin");
+		System.out.println("account holder name:Abdul");
 		System.out.println("account balance:"+total);
 	}
 	void withdraw()
@@ -34,11 +34,11 @@ class SIB
 public class Main {
 	public static void main(String args[])
 	{
-		SIB sib=new SIB();
+		canara canara=new Canara();
 		Scanner s=new Scanner(System.in);
 		System.out.println("enter the total amount:");
 		//int ch
-		sib.total=s.nextInt();
+		canara.total=s.nextInt();
 		//int opt=s.nextInt();
 		while(true){
 		System.out.println("1.withdraw");
@@ -48,11 +48,11 @@ public class Main {
 		System.out.println("enter the opyion:");
 		int opt=s.nextInt();
 		if(opt==1)
-			sib.withdraw();
+			canara.withdraw();
 		else if(opt==2);
-			sib.deposit();
+			canara.deposit();
 		else if (opt==3)
-			sib.ac();
+			canara.ac();
 		else 
 			System.out.println("exited");
 			break;
