@@ -1,6 +1,5 @@
 package program;
 import java.util.Scanner;
-//DIVIDE BY ZERO
 public class Sample {
     public static void main(String[] args) {
     Scanner in = new Scanner(System.in);
