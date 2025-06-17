@@ -1,0 +1,106 @@
+Microsoft Windows [Version 10.0.19045.2130]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin>mysql -u root -p
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 27
+Server version: 8.0.37 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> select * from emp
+    -> ;
+ERROR 1046 (3D000): No database selected
+mysql> use employee
+Database changed
+mysql> select * from emp
+    -> ;
++-------+--------+----------------+--------+------------+
+| empid | name   | dept           | salary | join_date  |
++-------+--------+----------------+--------+------------+
+|     1 | Abdul  | finance        |  66000 | 2005-05-07 |
+|     2 | Harish | web devolpment |  50000 | 2005-05-06 |
+|     3 | Vivin  | Marketing      |  40000 | 2005-05-05 |
+|     4 | bino   | finance        |  26000 | 2005-05-03 |
+|     5 | nawaz  | sales          |  30000 | 2005-05-04 |
+|     6 | arun   | wd             |  20000 | 2000-05-06 |
+|     7 | arun   | sales          |  20000 | 2005-05-02 |
+|     8 | james  | hr             |  35000 | 2005-05-01 |
++-------+--------+----------------+--------+------------+
+8 rows in set (0.00 sec)
+
+mysql> create table school(int id primary key, name varchar(25),
+    -> (nt mark);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'int id primary key, name varchar(25),
+(nt mark)' at line 1
+mysql> CREATE TABLE school (
+    ->   id INT PRIMARY KEY,
+    ->   name VARCHAR(25),
+    ->   mark INT
+    -> );
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc school;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(25) | YES  |     | NULL    |       |
+| mark  | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into custom
+    -> VALUES
+    -> (1, 'Abdul', 90);
+ERROR 1146 (42S02): Table 'employee.custom' doesn't exist
+mysql> (1, 'Abdul', 90),  (2, 'Harish', 88), (3,'Vivin',85);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '1, 'Abdul', 90),  (2, 'Harish', 88), (3,'Vivin',85)' at line 1
+mysql> VALUES
+    -> (1, 'Abdul', 90),  (2, 'Harish', 88), (3,'Vivin',85);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(1, 'Abdul', 90),  (2, 'Harish', 88), (3,'Vivin',85)' at line 2
+mysql> values  (1, 'Abdul', 90),  (2, 'Harish', 88), (3,'Vivin',85);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(1, 'Abdul', 90),  (2, 'Harish', 88), (3,'Vivin',85)' at line 1
+mysql> insert into school
+    ->  values  (1, 'Abdul', 90),  (2, 'Harish', 88), (3,'Vivin',85);
+Query OK, 3 rows affected (0.01 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> desc school;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(25) | YES  |     | NULL    |       |
+| mark  | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select * from school;
++----+--------+------+
+| id | name   | mark |
++----+--------+------+
+|  1 | Abdul  |   90 |
+|  2 | Harish |   88 |
+|  3 | Vivin  |   85 |
++----+--------+------+
+3 rows in set (0.00 sec)
+
+mysql> select * from school where mark>80;
++----+--------+------+
+| id | name   | mark |
++----+--------+------+
+|  1 | Abdul  |   90 |
+|  2 | Harish |   88 |
+|  3 | Vivin  |   85 |
++----+--------+------+
+3 rows in set (0.00 sec)
+
+mysql>
